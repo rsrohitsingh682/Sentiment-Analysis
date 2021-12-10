@@ -1,6 +1,6 @@
 const HOSTED_URLS = {
 //     queryTwitter:  window.location.protocol + '//'+ window.location.hostname,
-    queryTwitter: 'https://github.com/rsrohitsingh682/Sentiment-Analysis/blob/main/php/queryTwitter.php',
+    queryTwitter: 'https://github.com/rsrohitsingh682/Sentiment-Analysis/blob/main/php/queryTwitter.php?q=',
     model: 'https://storage.googleapis.com/tfjs-models/tfjs/sentiment_cnn_v1/model.json',
     metadata: 'https://storage.googleapis.com/tfjs-models/tfjs/sentiment_cnn_v1/metadata.json'
 };  
