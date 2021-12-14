@@ -1,5 +1,5 @@
 const HOSTED_URLS = {
-    queryTwitter:  window.location.protocol + '//'+ window.location.hostname + '/js/sentiment/queryTwitter.php?q=',
+    queryTwitter:  window.location.protocol + '//'+ window.location.hostname + './php/queryTwitter.php?q=',
     model: 'https://storage.googleapis.com/tfjs-models/tfjs/sentiment_cnn_v1/model.json',
     metadata: 'https://storage.googleapis.com/tfjs-models/tfjs/sentiment_cnn_v1/metadata.json'
 };  
@@ -18,7 +18,6 @@ const OOV_INDEX = 2;
 
 let urls, model, metadata;
 
-console.log("Rohit "+HOSTED_URLS.queryTwitter);
 
 $("#tag-input").on('keyup', function (e) {
     if (e.keyCode === 13) {
@@ -36,6 +35,8 @@ function init(){
     }else {
         urls = HOSTED_URLS;
     }
+
+    // console.log("Hello Rohit\n " + urls.queryTwitter);
 }
 
 async function setupSentimentModel(){
@@ -98,6 +99,7 @@ async function loadModel(url) {
     } catch (err) {
         console.log(err);
     }
+    console.log("Model Loaded");
 }
 
 async function loadMetadata(url) {
@@ -158,6 +160,7 @@ function getSentimentScore(text) {
 }
 
 function getTwitterHashTagData(query, callback) {
+    console.log(query);
     $.getJSON( urls.queryTwitter + query, function(result) {
         console.log(result);
         if(result !== null && result.statuses !== null){
